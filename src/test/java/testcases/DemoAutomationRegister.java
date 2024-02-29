@@ -41,6 +41,7 @@ public class DemoAutomationRegister extends AppTestBase {
 	@Parameters({"browser", "environment"})
 	@BeforeClass(alwaysRun = true)
 	public void initBrowser(String browser, String environment) throws Exception {
+		try{
 		configData = new FileOperations().readJson(config_filePath, environment);
 		configData.put("url", configData.get("url").replaceAll("[\\\\]", ""));
 		configData.put("browser", browser);
@@ -50,6 +51,9 @@ public class DemoAutomationRegister extends AppTestBase {
 		//Assert.assertTrue(isValidUrl, configData.get("url")+" might be Server down at this moment. Please try after sometime.");
 		initialize(configData);
 		startupPage = new StartupPage(driver);
+		}catch(Exception ex){
+			yakshaAssert(currentTest(), false, businessTestFile);
+		}
 	}
 	
 	@Test(priority = 1, groups = {"sanity"}, description="Navigate to the URL and Validate the Home Page")
@@ -121,8 +125,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.clickOnSelectCountryDropdownAndSelectEachCountryOneByOne();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		//RegisterPageInstance.clickOnSelectCountryDropdownAndSelectEachCountryOneByOne();
+		yakshaAssert(currentTest(), RegisterPageInstance.clickOnSelectCountryDropdownAndSelectEachCountryOneByOne()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -133,8 +137,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.selectEachCountryOneByOneFromCountryDrpdownAndValidate();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		//RegisterPageInstance.selectEachCountryOneByOneFromCountryDrpdownAndValidate();
+		yakshaAssert(currentTest(), RegisterPageInstance.selectEachCountryOneByOneFromCountryDrpdownAndValidate()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -146,8 +150,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		softAssert = new SoftAssert();
 		RegisterPageInstance = new DemoRegisterPages(driver);
 		RegisterPageInstance.checkAndUncheckEachHobbyCheckBox();
-		RegisterPageInstance.validateCheckBoxesRespondingCorrectllyToUserInterAction_AllowingSelectionAndDeselection();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		//RegisterPageInstance.validateCheckBoxesRespondingCorrectllyToUserInterAction_AllowingSelectionAndDeselection();
+		yakshaAssert(currentTest(), RegisterPageInstance.validateCheckBoxesRespondingCorrectllyToUserInterAction_AllowingSelectionAndDeselection()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -159,8 +163,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		softAssert = new SoftAssert();
 		RegisterPageInstance = new DemoRegisterPages(driver);
 		RegisterPageInstance.selectEachRadioButton();
-		RegisterPageInstance.validateEachRadioButtonoptionShouldBeSelectableAttime();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.validateEachRadioButtonoptionShouldBeSelectableAttime()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -198,8 +202,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		softAssert = new SoftAssert();
 		RegisterPageInstance = new DemoRegisterPages(driver);
 		RegisterPageInstance.selectYearMonthDate();	
-		RegisterPageInstance.validateAccurateSelectableYearMonthDate();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.validateAccurateSelectableYearMonthDate()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -211,8 +215,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		softAssert = new SoftAssert();
 		RegisterPageInstance = new DemoRegisterPages(driver);
 		RegisterPageInstance.clickOnChooseFilUploadButton();
-		RegisterPageInstance.getUploadImageName();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.getUploadImageName()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -226,20 +230,19 @@ public class DemoAutomationRegister extends AppTestBase {
 		String expectedDataFilePath = testDataFilePath+"expected_data.json";
 		Map<String, String> expectedRegisterDetails = new FileOperations().readJson(expectedDataFilePath, "userdetails");
 		RegisterPageInstance.fillAndValidateTheRegisterForm(expectedRegisterDetails);
-		RegisterPageInstance.validateMandetoryField();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.validateMandetoryField()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
-	}
-
+	}	
 	@Test(priority = 13, groups = {"sanity"}, description="Go to SwitchTo Tab clickOn Window and then click on Click")
 	public void switchToWindow() throws Exception {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToSwitchToTabCliOnWindowThenClickOnTab();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToSwitchToTabCliOnWindowThenClickOnTab()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -250,8 +253,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToSwitchToWindowClickOnOpenNewSeparateWindowAndClick();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToSwitchToWindowClickOnOpenNewSeparateWindowAndClick()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -262,8 +265,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToSwitchToWindowClickOnOpenSeparateMultipleWindowAndClick();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToSwitchToWindowClickOnOpenSeparateMultipleWindowAndClick()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -274,8 +277,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToSwitchToFrameClickOnClickOnSingleFrameAndPassTheValueInTextbox();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToSwitchToFrameClickOnClickOnSingleFrameAndPassTheValueInTextbox()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -286,8 +289,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToSwitchToFrameClickOnClickOniframeWithAnIframeAndPassTheValueInTextbox();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToSwitchToFrameClickOnClickOniframeWithAnIframeAndPassTheValueInTextbox()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -298,8 +301,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToWidgetsTabclickOnAccordioSelectAnyGroupsAndFetchData();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToWidgetsTabclickOnAccordioSelectAnyGroupsAndFetchData()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -310,8 +313,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToWidgetsTabclickOnAUtoCompleteAndPassValue();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToWidgetsTabclickOnAUtoCompleteAndPassValue()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -322,8 +325,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToWidgetsTabclickOnSliderAndPerformMaximizeMinimize();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToWidgetsTabclickOnSliderAndPerformMaximizeMinimize()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -334,8 +337,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToInterActionTabclickOnDragAndDropClickOnStaticAndPerfomDragAndDropAction();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(), RegisterPageInstance.goToInterActionTabclickOnDragAndDropClickOnStaticAndPerfomDragAndDropAction()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
@@ -346,8 +349,8 @@ public class DemoAutomationRegister extends AppTestBase {
 		try{
 		softAssert = new SoftAssert();		
 		RegisterPageInstance = new DemoRegisterPages(driver);
-		RegisterPageInstance.goToInterActionTabclickOnDragAndDropClickOnDynamicAndPerfomDragAndDropAction();
-		yakshaAssert(currentTest(), true, businessTestFile);
+		
+		yakshaAssert(currentTest(),RegisterPageInstance.goToInterActionTabclickOnDragAndDropClickOnDynamicAndPerfomDragAndDropAction()!=null, businessTestFile);
 		}catch(Exception ex){
 			yakshaAssert(currentTest(), false, businessTestFile);
 		}	
