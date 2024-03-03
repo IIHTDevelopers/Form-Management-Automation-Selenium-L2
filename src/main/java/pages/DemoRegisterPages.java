@@ -1,24 +1,15 @@
 package pages;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.util.Map;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
-import org.testng.Reporter;
-import org.testng.asserts.SoftAssert;
+
 
 public class DemoRegisterPages extends StartupPage 
 {
-	public SoftAssert softAssert;
-	//WebElemet Declaration
+	
+	//WebElement Declaration
 	By pageTitleText = By.xpath(""); 
 	By switchToNavigationMenu = By.xpath("");
 	By Alerts = By.xpath("");
@@ -60,8 +51,9 @@ public class DemoRegisterPages extends StartupPage
 	By chooseFile = By.xpath("");
 	By uploadImageFileName = By.xpath("");
 	
-	// add locators a per need
+	// add locators as per need
 	
+	// DECLARE ANY OBJECTS/VARIABLE TO SHARE DATA/INFORMATION/STATUS AMONG DIFFERENT METHODS 
 
 	//Getting the page name
 	String pageName = this.getClass().getSimpleName();
@@ -71,209 +63,173 @@ public class DemoRegisterPages extends StartupPage
 	public DemoRegisterPages(WebDriver driver) 
 	{
 		super(driver);
-//		commonEvents.waitTillElementLocated(switchToNavigationMenu, 120)
-//		.waitTillElementVisible(switchToNavigationMenu, 30);
-		
-//		commonEvents.waitTillElementLocated(Alerts, 120)
-//		.waitTillElementVisible(Alerts, 30);
 
 	}	
 	
 	
 	
 	//Utilization
-	
-	public String getPageTitle() throws Exception
+	//Navigate to the URL and Validate the Home Page. Return the Home Page Title
+	public String getHomePageTitle() throws Exception
 	{
 		return "";
 	}
 	
-	public String alertsPageTitle() throws Exception
-	{
-		return "";
+	
+
+	//Hover SwitchTo menu Option
+	public DemoRegisterPages hoverOnswitchToNavigationMenu() throws Exception {
+		return null;
 	}
+	
+	
 
 	
-	public DemoRegisterPages clickOnswitchToNavigationMenu() throws Exception {
-		return null;
-	}
-	
-	public DemoRegisterPages clickOnRegisterNavigationMenu() throws Exception {
-		return null;
-	}
-	
+	// Click on Alerts sub option
 	public DemoRegisterPages clickOnAlerts() throws Exception {
 		return null;
 	}
 	
+	// Return the Alerts Page Title
+	public String alertsPageTitle() throws Exception
+	{
+		return null;
+	}
 
-	
+	// Click on button to display alerts box
 	public DemoRegisterPages clickOnButtonToDisplayAnAlertBox() throws Exception {
 		return null;
 	}
 	
+	// Return the Alerts message
 	public String alertsMessageValidation() throws Exception
 	{
 		//return page name
 		return "";
 	}	
 	
+	//Navigate to Register Page
+	public DemoRegisterPages clickOnRegisterNavigationMenu() throws Exception {
+		return null;
+	}
 	
+	// Fill the registration form with data populated from expected_data.json
 	public DemoRegisterPages fillRegisterForm(Map<String, String> expectedData) throws Exception {
 		return null;
 	}
 	
-	public DemoRegisterPages fillAndValidateTheRegisterForm(Map<String, String> expectedData) throws Exception {
-		return null;
-	}
-
+	//Click on the country dropdown and Select each country option one by one
 	public DemoRegisterPages clickOnSelectCountryDropdownAndSelectEachCountryOneByOne() throws Exception {
 		return null;
 	}
 	
 
-	public DemoRegisterPages selectEachCountryOneByOneFromCountryDrpdownAndValidate() throws Exception {
-		return null;
-	}
-	
+	//Check and uncheck each hobby checkbox and Validate that the checkboxes are responding correctly to user interaction, allowing selection and deselection.
 	public DemoRegisterPages checkAndUncheckEachHobbyCheckBox() throws Exception {
 		return null;
 	}
 	
-	public DemoRegisterPages validateCheckBoxesRespondingCorrectllyToUserInterAction_AllowingSelectionAndDeselection() throws Exception {
-		return null;
-	}
 	
+	//Select each radio button option for gender and Validate that only one radio button option should be selectable at a time
 	public DemoRegisterPages selectEachRadioButton() throws Exception {
 		return null;
 	}
 	
-	public DemoRegisterPages validateEachRadioButtonoptionShouldBeSelectableAttime() throws Exception {
-		return null;
-	}
 	
-	public DemoRegisterPages validatePasswordFieldForScenarioOneBySendingDifferentValues(String data) throws Exception {
-		return null;
-	}
-	
-	public DemoRegisterPages validatePasswordFieldForScenarioTwoBySendingDifferentValues(String data1, String data2) throws Exception {
-		return null;
-	}
-	
-	public DemoRegisterPages validatePasswordFieldForScenarioThreeBySendingDifferentValues(String data) throws Exception {
-		return null;
-	}
-	
+	//Select different dates from the Date Of Birth fields_Validate that dates are selectable
 	public DemoRegisterPages selectYearMonthDate() throws Exception {
 		return null;
 	}
 	
-	public DemoRegisterPages validateAccurateSelectableYearMonthDate() throws Exception {
-		return null;
-	}
-	
+	// Click on the image upload button and Choose an image file from the file system _ Validate that the selected image should be displayed on the page after upload
 	public DemoRegisterPages clickOnChooseFilUploadButton() throws Exception {
 		return null;
 	}
 	
+	//Get the name of the file uploaded
 	public String getUploadImageName() throws Exception {
 		//return page name
-		return "";
+		return null;
 	}
 	
-	public DemoRegisterPages validateMandetoryField() throws Exception {
+	// Submit the register form, Verify that error messages for incomplete field displayed as appropriate. Return that message
+	public String submitRegistrationFormAndReturnthatMessage() throws Exception {
 		return null;
 	}
 
-	public DemoRegisterPages goToSwitchToTabCliOnWindowThenClickOnTab() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
+	//Hover Switch To Menu Option and click Window option. Return the title of the page navigated to
+	public String hoverSwitchToTabAndClickOnWindow() throws Exception {
+		return null;
 	}
 	
-	public DemoRegisterPages goToSwitchToWindowClickOnOpenNewSeparateWindowAndClick() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
+	// Click on "click" button of new Tabbed Windows option and return the title of new Tab opened
+	public String clickOnClickButtonOfNewTabbedWindow() throws Exception {
+		return null;
+	}
+
+
+	// Click on "click" button of new Separate Windows option and return the title of new Window opened
+	public String clickOnClickButtonOfNewSeparateWindow() throws Exception {
+		return null;
+	}
+
+	
+	// Click on "click" button of Multiple Windows option and return the count of new tabs opened
+	public int clickOnClickButtonOfMultipleWindow() throws Exception {
+		return -1;
+	}
+
+	//Hover Switch To Menu Option and click Frame option. Return the title of the page navigated to
+	public String hoverSwitchToTabAndClickOnFrame() throws Exception {
+		return null;
+	}
+
+	// Read the the value of iframe:single from expected Data and fill the text box. Return that value as well 
+	public String passTheValueInTextboxofSingleIframe(Map<String, String> expectedData) throws Exception {
+		return null;
+	}
+
+	// Read the the value of iframe:nested from expected Data and fill the text box. Return that value as well 
+	public String passTheValueInTextboxofNestedIframe(Map<String, String> expectedData) throws Exception {
+		return null;
+	}
+
+	//Hover Switch To Widget Option and click Accordion option. Return the title of the page navigated to
+	public String hoverWidgetTabAndClickOnAccordion() throws Exception {
+		return null;
+	}
+
+	//Click on collapsible Group 3. Return the description mentioned under the same
+	public String clickOnCollapsibleGroupThree() throws Exception {
+		return null;
+	}
+
+	//Hover  Widget Option and click AutoComplete option. Return the title of the page navigated to
+	public String hoverWidgetTabAndClickOnAutoComplete() throws Exception {
+		return null;
+	}
+
+	// Read the the value of autocomplete:data from expected Data and fill the text box. Return that number of autofill suggestion values that populate 
+	public int fillAutoCompleteTextBox(Map<String, String> expectedData) throws Exception {
+		return -1;
 	}
 	
-	public DemoRegisterPages goToSwitchToWindowClickOnOpenSeparateMultipleWindowAndClick() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
-	}
 	
-	public DemoRegisterPages goToSwitchToFrameClickOnClickOnSingleFrameAndPassTheValueInTextbox() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
-	}
 	
-	public DemoRegisterPages goToSwitchToFrameClickOnClickOniframeWithAnIframeAndPassTheValueInTextbox() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
-	}
 	
-	public DemoRegisterPages goToWidgetsTabclickOnAccordioSelectAnyGroupsAndFetchData() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
-	}
-	
-	public DemoRegisterPages goToWidgetsTabclickOnAUtoCompleteAndPassValue() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
-	}
-	
+	//Hover  Widget Option and click on slider option and perform maximize and minimize operation
 	public DemoRegisterPages goToWidgetsTabclickOnSliderAndPerformMaximizeMinimize() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
+		return null;
 	}
 	
-	
+	//Hover  Interaction Option-Static and click on drag and drop option and perform drag and drop of images
 	public DemoRegisterPages goToInterActionTabclickOnDragAndDropClickOnStaticAndPerfomDragAndDropAction() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
+		return null;
 	}
 	
+	//Hover  Interaction Option-Dynamic and click on drag and drop option and perform drag and drop of images
 	public DemoRegisterPages goToInterActionTabclickOnDragAndDropClickOnDynamicAndPerfomDragAndDropAction() throws Exception {
-		try {
-			// TODO Auto-generated method stub
-		}catch(Exception e) {
-			throw e;
-		}
-		return new DemoRegisterPages(driver);
+		return null;
 	}
 
 

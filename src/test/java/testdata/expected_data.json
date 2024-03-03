@@ -17,6 +17,13 @@
 	},
 	"alerts_message":{
 		"alertsMessage":"I am an alert box!"
+	},
+	"iframe":{
+		"single":"Single",
+		"nested":"Nested"
+	},
+	"autocomplete":{
+		"data":"ind"
 	}
 
 }
